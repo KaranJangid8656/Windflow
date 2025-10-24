@@ -6,7 +6,6 @@ import { Dashboard } from "@/components/dashboard"
 import { Analytics } from "@/components/analytics"
 import { Maintenance } from "@/components/maintenance"
 import { Performance } from "@/components/performance"
-import { Settings } from "@/components/settings"
 import { Footer } from "@/components/footer"
 import { DataInputPage } from "@/components/data-input-page"
 import { generateMockData } from "@/lib/mock-data"
@@ -49,8 +48,6 @@ export default function Home() {
         return <Maintenance />
       case "performance":
         return <Performance />
-      case "settings":
-        return <Settings />
       case "data-input":
         return <DataInputPage />
       default:

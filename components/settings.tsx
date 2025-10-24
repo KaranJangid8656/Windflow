@@ -18,15 +18,28 @@ export function Settings() {
     updateFrequency: "5",
   })
 
-  const handleToggle = (key: string) => {
+  const handleToggle = (key: keyof typeof settings) => {
     setSettings((prev) => ({ ...prev, [key]: !prev[key] }))
   }
 
-  const handleChange = (key: string, value: string) => {
+  const handleChange = (key: keyof typeof settings, value: string) => {
     setSettings((prev) => ({ ...prev, [key]: value }))
   }
 
-  const settingsSections = [
+type SettingItem = {
+  key: keyof typeof settings
+  label: string
+  type: "toggle" | "input"
+}
+
+type SettingsSection = {
+  title: string
+  icon: any
+  description: string
+  settings: SettingItem[]
+}
+
+  const settingsSections: SettingsSection[] = [
     {
       title: "Notifications",
       icon: Bell,
@@ -89,14 +102,14 @@ export function Settings() {
                     </Label>
                     {setting.type === "toggle" ? (
                       <Switch
-                        checked={settings[setting.key as keyof typeof settings] as boolean}
+                        checked={settings[setting.key] as boolean}
                         onCheckedChange={() => handleToggle(setting.key)}
                       />
                     ) : (
                       <Input
                         id={setting.key}
                         type="number"
-                        value={settings[setting.key as keyof typeof settings]}
+                        value={settings[setting.key] as string}
                         onChange={(e) => handleChange(setting.key, e.target.value)}
                         className="w-24"
                       />
