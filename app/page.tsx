@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar currentPage={currentPage} onPageChange={setCurrentPage} />
-      <main className="flex-1 overflow-auto pt-2 px-2 md:px-8 max-w-screen-2xl w-full mx-auto">{renderPage()}</main>
+      <main className="flex-1 overflow-auto pt-2 px-2 md:px-8 max-w-7xl w-full mx-auto">{renderPage()}</main>
       <Footer />
     </div>
   )

@@ -33,7 +33,7 @@ export function Dashboard({ data }: { data: MockData | null }) {
 
   return (
     <div className="min-h-screen bg-background">
-      <main className="container mx-auto px-4 py-8 max-w-screen-2xl">
+      <main className="container mx-auto px-4 py-8 max-w-7xl">
         <h1 className="text-3xl font-bold text-foreground mb-6">Dashboard</h1>
         <FilterBar timeRange={timeRange} onTimeRangeChange={setTimeRange} status={status} onStatusChange={setStatus} />
 
